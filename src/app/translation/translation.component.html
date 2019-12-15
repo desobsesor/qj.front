@@ -1,0 +1,12 @@
+<header>
+    <div class="contenedor">
+        <div class="contenedor-botones">
+            <button type="button" class="btn btn-success btn-xs" [ngClass]="{'active': activeLang == 'es'}" (click)="cambiarLenguaje('es')">
+                Es
+            </button>
+            <button type="button" class="btn btn-primary btn-xs" [ngClass]="{'active': activeLang == 'en'}" (click)="cambiarLenguaje('en')">
+                En
+            </button>
+        </div>
+    </div>
+</header>

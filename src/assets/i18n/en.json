@@ -1,0 +1,25 @@
+{
+  "principal" : {
+    "bienvenida": "Wellcome to",
+    "titulo": "I WANT TO PLAY",
+    "inicioDeSesion": "LOGIN",
+    "login": {
+      "label_usuario": "Username",
+      "label_usuarioerror": "User is required!",
+      "label_password": "Password",
+      "label_passworderror": "Password is required!",
+      "btn_iniciarSesion": "Login",
+      "btn_registrarse": "Register"
+    },
+    "register": {
+      "label_usuario": "User",
+      "label_email": "Email",
+      "label_primerNombre": "First Name",
+      "label_segundoNombre": "Second Name",
+      "label_primerApellido": "First Name",
+      "label_segundoApellido": "Second Name",
+      "btn_registrar": "Register",
+      "btn_cancelarRegistrar": "Register Cancel"
+    }
+  }
+}

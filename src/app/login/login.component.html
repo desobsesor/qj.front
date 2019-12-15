@@ -1,0 +1,24 @@
+﻿<h2>{{ 'principal.inicioDeSesion' | translate}}</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="loginForm">
+    <div class="form-group">
+        <label for="usuario"><i class="fa fa-user"></i> {{ 'principal.login.label_usuario' | translate}}:</label>
+        <input id="usuario" type="text" formControlName="usuario" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.usuario.errors }" />
+        <div *ngIf="submitted && f.usuario.errors" class="invalid-feedback">
+            <div *ngIf="f.usuario.errors.required">{{ 'principal.login.label_usuarioerror' | translate}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="passwordHash"><i class="fa fa-key"></i> {{ 'principal.login.label_password' | translate}}:</label>
+        <input id="passwordHash" type="password" formControlName="passwordHash" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passwordHash.errors }" />
+        <div *ngIf="submitted && f.passwordHash.errors" class="invalid-feedback">
+            <div *ngIf="f.passwordHash.errors.required">{{ 'principal.login.label_passworderror' | translate}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            {{ 'principal.login.btn_iniciarSesion' | translate}}
+        </button>
+        <a routerLink="/register" class="btn btn-link">{{ 'principal.login.btn_registrarse' | translate}}</a>
+    </div>
+</form>

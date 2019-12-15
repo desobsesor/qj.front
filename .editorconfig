@@ -1,0 +1,15 @@
+# Editor configuration, see http://editorconfig.org
+root = true #propiedad especial que debe especificarse en la parte superior del archivo fuera de cualquier sección. Establecer en verdadero para detener la .editorconfigbúsqueda de archivos en el archivo actual.
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line =lf #se establece en lf , cr o crlf para controlar cómo se representan los saltos de línea.
+charset = latin1 #establecido en latin1 , utf-8 , utf-8-bom , utf-16be o utf-16le para controlar el conjunto de caracteres
+trim_trailing_whitespace = true #establecido en verdadero para eliminar los caracteres de espacio en blanco que preceden a los caracteres de nueva línea y falso para garantizar que no lo haga
+insert_final_newline = true # se establece en verdadero para garantizar que el archivo termine con una nueva línea al guardar y falso para garantizar que no lo haga.
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false

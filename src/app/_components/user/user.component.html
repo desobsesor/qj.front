@@ -1,0 +1,8 @@
+<h3>Usuarios registrados:</h3>
+<ul class="list-usuarios">
+    <li *ngFor="let user of users">
+        <i class="fa fa-credit-card" title="{{user.correo}}"></i> {{user.usuario}} ({{user.nombreCompleto}})
+        - <a (click)="deleteUser(user.id)" class="text-danger"><i class="fa fa-remove"></i> Eliminar</a>
+    </li>
+</ul>
+

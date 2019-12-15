@@ -1,0 +1,17 @@
+﻿{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "ES5",
+        "baseUrl": "src",
+        "paths": {
+            "@/*": [
+                "app/*"
+            ]
+        },
+        "types": [
+            "underscore",
+            "node"
+        ]
+    }
+}

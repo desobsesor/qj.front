@@ -1,0 +1,25 @@
+{
+  "principal" : {
+    "bienvenida": "Bienvenido!",
+    "titulo": "QUIERO JUGAR",
+    "inicioDeSesion": "INICIO DE SESIÓN",
+    "login": {
+      "label_usuario": "Usuario",
+      "label_usuarioerror": "El usuario es requerido!",
+      "label_password": "Contraseña",
+      "label_passworderror": "La contraseña es requerida!",
+      "btn_iniciarSesion": "Quiero Jugar",
+      "btn_registrarse": "Registrarse"
+    },
+    "register": {
+      "label_usuario": "Usuario",
+      "label_email": "Correo Electrónico",
+      "label_primerNombre": "Primer Nombre",
+      "label_segundoNombre": "Segundo Nombre",
+      "label_primerApellido": "Primer Apellido",
+      "label_segundoApellido": "Segundo Apellido",
+      "btn_registrar": "Registrar",
+      "btn_cancelarRegistrar": "Cancelar registro!"
+    }
+  }
+}

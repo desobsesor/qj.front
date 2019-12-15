@@ -1,0 +1,10 @@
+<h2>¿Que quieres jugar?</h2>
+
+<div class="list-group list-disciplinasdeportivas">
+    <span style="margin: 0px auto !important" *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    <a *ngFor="let sport of sportings | sort" routerLink="/calendar" class="list-group-item list-group-item-{{sport.clase}}">
+        <i class="fa fa-arrow-{{sport.icono}}"></i>
+        {{sport.nombre}}
+    </a>
+</div>
+<a routerLink="/home" class="btn btn-link"><i class="fa fa-arrow-circle-left"></i> Atras</a>
