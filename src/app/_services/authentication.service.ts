@@ -1,9 +1,9 @@
-﻿import { Injectable } from '@angular/core';
+﻿import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-import { User } from '@/_models';
+import {User} from '@/_models';
 
 @Injectable({
     providedIn: 'root'
@@ -13,8 +13,10 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
+        if (localStorage.getItem('currentUser') != null) {
+            this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+            this.currentUser = this.currentUserSubject.asObservable();
+        }
     }
 
     public get currentUserValue(): User {
@@ -27,7 +29,7 @@ export class AuthenticationService {
         body = body.set('usuario', usuario);
         body = body.set('passwordHash', passwordHash);
 
-        return this.http.post<any>(`${config.apiUrl}/api/login`, body, { headers: myheader })//{ usuario: usuario, passwordHash: passwordHash })
+        return this.http.post<any>(`${config.apiUrl}/api/login`, body, {headers: myheader})//{ usuario: usuario, passwordHash: passwordHash })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));

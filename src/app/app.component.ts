@@ -2,17 +2,17 @@
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {AlertService, AuthenticationService} from './_services';
-import { User } from './_models';
+import {User} from './_models';
 
 import './_content/styles.less';
 import {first} from "rxjs/operators";
 import {MsgService} from "@/_services/msg.service";
 
 @Component({
-    selector: 'app',
-    templateUrl: 'app.component.html'
+    selector: 'app-service',
+    templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppServiceComponent implements OnInit {
     currentUser: User;
     loading = false;
     returnUrl: string;
@@ -30,11 +30,14 @@ export class AppComponent implements OnInit {
             this.router.navigate(['/']);
         }
     }
+
     ngOnInit() {
+        console.log('entro...');
         this.msg.messages.subscribe(msg => {
             console.log(msg);
         })
     }
+
     logout() {
         // reset alerts on submit
 
