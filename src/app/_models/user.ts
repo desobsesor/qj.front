@@ -11,7 +11,7 @@
     telefono: string;
     direccion: string;
     rol: string;
-    activo: boolean;
+    activo?: boolean;
     persona: string;
     token: string;
 }

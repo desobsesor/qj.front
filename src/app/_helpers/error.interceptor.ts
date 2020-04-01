@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AuthenticationService } from '@/_services';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -16,9 +17,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.authenticationService.logout();
                 location.reload(true);
             }
-            
+
             const error = err.error.message || err.statusText;
             return throwError(error);
         }))
     }
+
 }

@@ -4,6 +4,10 @@ const path = require('path');
 
 module.exports = {
     entry: './src/main.ts',
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: '[name].js',
+    },
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
@@ -23,6 +27,10 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
+                test: /\.json?$/,
+                use: 'json-loader'
             },
 
             // workaround for warning: System.import() is deprecated and will be removed soon. Use import() instead.

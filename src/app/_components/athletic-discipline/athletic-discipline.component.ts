@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {first} from "rxjs/operators";
 import {AthleticDisciplineService} from "@/_services/athletic-discipline.service";
 import {AlertService} from "@/_services";
+import {AthleticDiscipline} from "@/_models/athletic-discipline";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
     selector: 'app-athletic-discipline',
@@ -10,7 +12,7 @@ import {AlertService} from "@/_services";
 export class AthleticDisciplineComponent implements OnInit {
     loading = false;
     isSuperAdmin = false;
-    sportings = [];
+    public sportings: any[];
 
     constructor(
         private athleticDisciplineService: AthleticDisciplineService,
@@ -18,6 +20,9 @@ export class AthleticDisciplineComponent implements OnInit {
     ) {
     }
 
+    /**
+     * Example of a String Time adapter
+     */
     ngOnInit() {
         this.loadAllSportings();
     }
@@ -28,6 +33,7 @@ export class AthleticDisciplineComponent implements OnInit {
             .pipe(first())
             .subscribe(sportings => {
                 this.sportings = sportings;
+                console.log('this.sportings: ', this.sportings);
                 this.loading = false;
             },
             error => {

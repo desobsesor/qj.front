@@ -10,11 +10,12 @@ import {SportsfieldComponent} from "@/_components/sportsfield/sportsfield.compon
 import {CreateSportsfieldComponent} from "@/_components/sportsfield/create-sportsfield.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: '', component: HomeComponent,  canActivate: [AuthGuard]},
+  //  {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'users', component: UserComponent},
-  {path: 'athleticDiscipline', component: AthleticDisciplineComponent},
+  {path: 'athleticDiscipline', component: AthleticDisciplineComponent, canActivate: [AuthGuard]},
   {path: 'level', component: RegisterComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'sportfield', component: SportsfieldComponent},

@@ -1,16 +1,26 @@
 ﻿import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AthleticDiscipline} from "@/_models/athletic-discipline";
+import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AthleticDisciplineService {
+    /*private headers = new HttpHeaders().set('Content-Type', 'application/json')
+        //.set('Ocp-Apim-Subscription-Key', environment.SubscriptionKey)
+        .set('Authorization', 'Bearer keyscip2019')
+    .append('Access-Control-Allow-Origin', 'http://localhost:8081')
+    .append('Access-Control-Allow-Credentials', 'true');*/
+    //.set('Authorization', `Bearer ${sessionStorage.getItem('Token')}`);
+
     constructor(private http: HttpClient) {
     }
 
     getAll() {
-        return this.http.get<AthleticDiscipline[]>(`${config.apiUrl}/api/disciplinasDeportivas`);
+        console.log('En el routing ...');
+        return this.http.get<any[]>(`${config.apiUrl}/api/disciplinasDeportivas`);
     }
 
     create(athleticDiscipline: AthleticDiscipline) {
