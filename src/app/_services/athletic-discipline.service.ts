@@ -8,11 +8,11 @@ import {Observable} from "rxjs";
     providedIn: 'root'
 })
 export class AthleticDisciplineService {
-    private headers = new HttpHeaders().set('Content-Type', 'application/json')
+    /*private headers = new HttpHeaders().set('Content-Type', 'application/json')
         //.set('Ocp-Apim-Subscription-Key', environment.SubscriptionKey)
         .set('Authorization', 'Bearer keyscip2019')
     .append('Access-Control-Allow-Origin', 'http://localhost:8081')
-    .append('Access-Control-Allow-Credentials', 'true');
+    .append('Access-Control-Allow-Credentials', 'true');*/
     //.set('Authorization', `Bearer ${sessionStorage.getItem('Token')}`);
 
     constructor(private http: HttpClient) {
@@ -20,10 +20,7 @@ export class AthleticDisciplineService {
 
     getAll() {
         console.log('En el routing ...');
-        return this.http.get<any[]>(`${config.apiUrl}/api/disciplinasDeportivas`, {
-            headers: this.headers,
-            observe: 'response'
-        });
+        return this.http.get<any[]>(`${config.apiUrl}/api/disciplinasDeportivas`);
     }
 
     create(athleticDiscipline: AthleticDiscipline) {

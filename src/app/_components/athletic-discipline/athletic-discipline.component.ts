@@ -20,6 +20,9 @@ export class AthleticDisciplineComponent implements OnInit {
     ) {
     }
 
+    /**
+     * Example of a String Time adapter
+     */
     ngOnInit() {
         this.loadAllSportings();
     }
@@ -29,7 +32,7 @@ export class AthleticDisciplineComponent implements OnInit {
         this.athleticDisciplineService.getAll()
             .pipe(first())
             .subscribe(sportings => {
-                this.sportings = sportings.body;
+                this.sportings = sportings;
                 console.log('this.sportings: ', this.sportings);
                 this.loading = false;
             },

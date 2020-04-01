@@ -4,13 +4,10 @@
 <ngb-datepicker #dp [(ngModel)]="model" (select)="select()" (navigate)="date = $event.next"></ngb-datepicker>
 <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
 <hr/>
-<span style="font-size: 10px">Fecha: {{ model | json }} </span>
-<span style="font-size: 10px"> Hora: {{ time }}</span><!--
-<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2019, month: 12})">a Diciembre 2019</button>
+<span style="font-size: 10px"> Fecha: {{ model | json }} </span>
+<span style="font-size: 10px"> Hora: {{ time }}</span>
 <hr/>
-<pre>Month: {{ date.month }}.{{ date.year }}</pre>-->
-<hr/>
-<a routerLink="/athleticDiscipline" class="btn btn-link"><i class="fa fa-arrow-circle-left"></i> Atras</a>
-<button [disabled]="!loading" class="btn btn-primary" (click)="continuar()" >
+<a routerLink="/athleticDiscipline" class="btn btn-link"><em class="fa fa-arrow-circle-left"></em> Atras</a>
+<button [disabled]="!loading" class="btn btn-primary" (click)="continuar()">
     Continuar
 </button>

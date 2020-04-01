@@ -33,6 +33,7 @@ export class AppServiceComponent implements OnInit {
 
     ngOnInit() {
         console.log('entro...');
+
         this.msg.messages.subscribe(msg => {
             console.log(msg);
         })
@@ -41,7 +42,7 @@ export class AppServiceComponent implements OnInit {
     logout() {
         // reset alerts on submit
 
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/api/logout';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/logout';
         this.alertService.clear();
         this.loading = true;
         this.authenticationService.logout()
@@ -50,7 +51,7 @@ export class AppServiceComponent implements OnInit {
                 data => {
                     console.log(data);
                     // this.router.navigate([this.returnUrl]);
-                    this.router.navigate(['login']);
+                    this.router.navigate(['/login']);
                 },
                 error => {
                     this.alertService.error(error);

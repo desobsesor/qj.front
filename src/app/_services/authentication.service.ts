@@ -11,6 +11,7 @@ import {User} from '@/_models';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
+    //
 
     constructor(private http: HttpClient) {
         if (localStorage.getItem('currentUser') != null) {
@@ -28,7 +29,7 @@ export class AuthenticationService {
         let body = new HttpParams();
         body = body.set('usuario', usuario);
         body = body.set('passwordHash', passwordHash);
-
+        // config.apiUrl = 'http://localhost:5023';
         return this.http.post<any>(`${config.apiUrl}/api/login`, body, {headers: myheader})//{ usuario: usuario, passwordHash: passwordHash })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -41,6 +42,7 @@ export class AuthenticationService {
     logout() {
         const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         // remove user from local storage and set current user to null
+        // config.apiUrl = 'http://localhost:5023';
         return this.http.get<any>(`${config.apiUrl}/api/logout`)
             .pipe(map(data => {
                 console.log('data: ', JSON.stringify(data));
