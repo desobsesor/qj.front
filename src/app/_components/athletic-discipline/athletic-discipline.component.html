@@ -2,7 +2,7 @@
 
 <div class="list-group list-disciplinasdeportivas">
     <span style="margin: 0px auto !important" *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-    <a *ngFor="let sport of sportings | sort" routerLink="/calendar" class="list-group-item list-group-item-{{sport.clase}}">
+    <a *ngFor="let sport of sportings | sort" (click)="cargarAthleticDiscipline(sport)" class="list-group-item list-group-item-{{sport.clase}}">
         <em class="fa fa-arrow-{{sport.icono}}"></em>
         {{sport.nombre}}
     </a>

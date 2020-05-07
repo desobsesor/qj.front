@@ -1,10 +1,39 @@
 <h2>¿Donde quieres jugar?</h2>
-
+<br>
+<div class="example-header" style="margin:-10px auto -20px auto !important;">
+    <input type="text" (keyup)="applyFilter($event.target.value)" class="form-control"
+           (focus)="setupFilter('nombre')" placeholder="Filtro de busqueda">
+</div>
+<br>
 <div class="list-group list-camposdeportivos">
-  <span style="margin: 0px auto !important" *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-  <a *ngFor="let sportfield of sportsfields | sort" routerLink="/calendar" class="list-group-item list-group-item-{{sportfield.clase}}">
-    <em class="fa fa-arrow-{{sportfield.icono}}"></em>
-    {{sportfield.nombre}}
-  </a>
+    <span style="margin: 0px auto !important" *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    <a *ngFor="let sportfield of sportsfields | sort" routerLink="/calendar"
+       class="list-group-item list-group-item-{{sportfield.clase}}">
+        <em class="fa fa-arrow-{{sportfield.icono}}"></em>
+        {{sportfield.nombre}}
+    </a>
 </div>
 <a routerLink="/calendar" class="btn btn-link"><em class="fa fa-arrow-circle-left"></em> Atras</a>
+<a routerLink="/maps" class="btn btn-link"><em class="fa fa-camera"></em> Ver Mapa</a>
+<main id="logout-button-holder">
+    <button mat-raised-button id="logout-button" (click)="open(mymodal)">Logout</button>
+</main>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        This is example from ItSolutionStuff.com
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-outline-primary mr-2" (click)="open('focusFirst')">
+            <div>Open confirm modal</div>
+            <!--<div class="text-dark" aria-hidden="true"><small>&times; button will be focused</small></div>-->
+        </button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+</ng-template>

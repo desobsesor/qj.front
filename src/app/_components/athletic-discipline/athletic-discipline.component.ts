@@ -4,6 +4,8 @@ import {AthleticDisciplineService} from "@/_services/athletic-discipline.service
 import {AlertService} from "@/_services";
 import {AthleticDiscipline} from "@/_models/athletic-discipline";
 import {HttpResponse} from "@angular/common/http";
+import {GameAssistantService} from "@/_services/game-assistant.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-athletic-discipline',
@@ -16,7 +18,9 @@ export class AthleticDisciplineComponent implements OnInit {
 
     constructor(
         private athleticDisciplineService: AthleticDisciplineService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        public gameAssistantService: GameAssistantService,
+        private router: Router
     ) {
     }
 
@@ -27,19 +31,24 @@ export class AthleticDisciplineComponent implements OnInit {
         this.loadAllSportings();
     }
 
+    cargarAthleticDiscipline(athleticDiscipline: AthleticDiscipline): void {
+        this.gameAssistantService.setAthleticDiscipline(athleticDiscipline);
+        this.router.navigate(['/calendar']);
+    }
+
     private loadAllSportings() {
         this.loading = true;
         this.athleticDisciplineService.getAll()
             .pipe(first())
             .subscribe(sportings => {
-                this.sportings = sportings;
-                console.log('this.sportings: ', this.sportings);
-                this.loading = false;
-            },
-            error => {
-              this.alertService.error(error);
-              this.loading = false;
-            });
+                    this.sportings = sportings;
+                    console.log('this.sportings: ', this.sportings);
+                    this.loading = false;
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
     }
 
     deleteSport(id: number) {

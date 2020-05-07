@@ -18,8 +18,9 @@
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            <em class="fa fa-lock"></em>
             {{ 'principal.login.btn_iniciarSesion' | translate}}
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
         </button>
         <a routerLink="/register" class="btn btn-link">{{ 'principal.login.btn_registrarse' | translate}}</a>
     </div>

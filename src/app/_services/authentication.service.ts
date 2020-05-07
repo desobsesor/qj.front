@@ -11,13 +11,14 @@ import {User} from '@/_models';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
+
     //
 
     constructor(private http: HttpClient) {
-        if (localStorage.getItem('currentUser') != null) {
-            this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-            this.currentUser = this.currentUserSubject.asObservable();
-        }
+        //if (localStorage.getItem('currentUser') != null) {
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUser = this.currentUserSubject.asObservable();
+        //}
     }
 
     public get currentUserValue(): User {
@@ -32,8 +33,17 @@ export class AuthenticationService {
         // config.apiUrl = 'http://localhost:5023';
         return this.http.post<any>(`${config.apiUrl}/api/login`, body, {headers: myheader})//{ usuario: usuario, passwordHash: passwordHash })
             .pipe(map(user => {
+                var stringUSer = user.token;
+                console.log('stringUSer: ', stringUSer);
+                var dataUser = {
+                    token: stringUSer.split(';')[0],
+                    usuario: stringUSer.split(';')[1],
+                    documento: stringUSer.split(';')[2],
+                    correo: stringUSer.split(';')[3],
+                    rol: stringUSer.split(';')[4],
+                }
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('currentUser', JSON.stringify(dataUser));
                 this.currentUserSubject.next(user);
                 return user;
             }));

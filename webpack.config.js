@@ -32,7 +32,10 @@ module.exports = {
                 test: /\.json?$/,
                 use: 'json-loader'
             },
-
+            {
+                test: /\.css?$/,
+                use: 'raw-loader'
+            },
             // workaround for warning: System.import() is deprecated and will be removed soon. Use import() instead.
             {
                 test: /[\/\\]@angular[\/\\].+\.js$/,

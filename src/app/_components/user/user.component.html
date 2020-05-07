@@ -2,7 +2,26 @@
 <ul class="list-usuarios">
     <li *ngFor="let user of users">
         <em class="fa fa-credit-card" title="{{user.correo}}"></em> {{user.usuario}} ({{user.nombreCompleto}})
-        - <a (click)="deleteUser(user.id)" class="text-danger"><em class="fa fa-remove"></em> Eliminar</a>
+        - <a (click)="open(mymodal, user)" class="text-danger"><em class="fa fa-remove"></em> Eliminar</a>
     </li>
 </ul>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" style="color: #0d3349 !important;">Eliminando Usuario</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">x</span>
+        </button>
+    </div>
+    <div class="modal-body" style="color: #0d3349 !important;">
+        Esta seguro de eliminar este usuario?
+    </div>
+    <div class="modal-footer">
+        <button (click)="modal.close('Save click')" class="btn btn-outline-primary mr-2" >
+            <div>Ok</div>
+            <!--<div class="text-dark" aria-hidden="true"><small>&times; button will be focused</small></div>-->
+        </button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel Save')">Cancelar</button>
+    </div>
+</ng-template>
 

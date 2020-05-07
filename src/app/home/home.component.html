@@ -3,22 +3,40 @@
 <div class="card-columns">
     <div class="card bg-primary" routerLink="athleticDiscipline" style="cursor: pointer;">
         <div class="card-body text-center">
+
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             <p class="card-text"><em class="fa fa-street-view"></em> Quiero Jugar!</p>
         </div>
     </div>
-    <div class="card bg-danger" routerLink="create-sportfield" style="cursor: pointer;">
+    <div class="card bg-danger" routerLink="add-sportfield" style="cursor: pointer;">
         <div class="card-body text-center">
             <p class="card-text"><em class="fa fa-universal-access"></em> Organizar juego!</p>
         </div>
     </div>
-    <div class="card bg-success" style="cursor: pointer;">
+
+    <div class="card bg-success" routerLink="create-sportfield" style="cursor: pointer;">
+        <div class="card-body text-center">
+            <p class="card-text"><em class="fa fa-universal-access"></em> Crear campo deportivo</p>
+        </div>
+    </div>
+    <div class="card bg-success" routerLink="profile"  style="cursor: pointer;">
         <div class="card-body text-center">
             <p class="card-text"><em class="fa fa-user"></em> Configurar perfil!</p>
         </div>
     </div>
-    <div class="card bg-danger" style="cursor: pointer;">
+    <div class="card bg-danger" routerLink="events"  style="cursor: pointer;">
         <div class="card-body text-center">
             <p class="card-text"><em class="fa fa-universal-access"></em> Mis eventos!</p>
+        </div>
+    </div>
+    <div class="card bg-danger" routerLink="mapa"  style="cursor: pointer;">
+        <div class="card-body text-center">
+            <p class="card-text"><em class="fa fa-file-word-o"></em> Mapa!</p>
+        </div>
+    </div>
+    <div class="card bg-danger" routerLink="articles"  style="cursor: pointer;">
+        <div class="card-body text-center">
+            <p class="card-text"><em class="fa fa-file-word-o"></em> Articulos!</p>
         </div>
     </div>
 </div>

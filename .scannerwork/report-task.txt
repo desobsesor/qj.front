@@ -2,5 +2,5 @@ projectKey=QJFront
 serverUrl=http://localhost:9000
 serverVersion=8.2.0.32929
 dashboardUrl=http://localhost:9000/dashboard?id=QJFront
-ceTaskId=AXEwYm6uHQyTLEdIe1Fi
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXEwYm6uHQyTLEdIe1Fi
+ceTaskId=AXE2GhseHQyTLEdIe1F5
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXE2GhseHQyTLEdIe1F5

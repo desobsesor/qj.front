@@ -20,39 +20,40 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
-        console.log('entro al interceptor');
+        console.log('pasando por el interceptor ...');
         let cloneReq;
         let currentUser = this.authenticationService.currentUserValue;
         if (currentUser && currentUser.token) {
-            if(environment.enTest)
-                console.log('currentUser: ', currentUser )
+            if (environment.enTest) {
+                console.log('currentUser: ', currentUser);
+            }
             const cloneReq = request.clone({
                 setHeaders: {
                     Authorization: `Beares ${sessionStorage.getItem('Token')}`,
                     // Authorization: `Bearer ${currentUser.token}`
-                    // 'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                     // 'Ocp-Apim-Subscription-Key': environment.SubscriptionKey
                 }
             });
         }
 
         /*return next.handle(request);*/
-       //return next.handle(request).pipe(
-       return next.handle(request).pipe(
-           map((event: HttpEvent<any>) => {
-               if (event instanceof HttpResponse) {
-                   let inValid = this.errorResponse(event.body);
-                   if (inValid) {
-                       return null;
-                   }
-               }
-               return event;
-           }),
-           catchError((error: HttpErrorResponse) => {
-               this.erroresHttpPeticion(error.status);
-               return throwError(error);
-           })
-       );
+        //return next.handle(request).pipe(
+        return next.handle(request).pipe(
+            map((event: HttpEvent<any>) => {
+                if (event instanceof HttpResponse) {
+                    let inValid = this.errorResponse(event.body);
+                    if (inValid) {
+                        return null;
+                    }
+                }
+                return event;
+            }),
+            catchError((error: HttpErrorResponse) => {
+                this.erroresHttpPeticion(error.status);
+                return throwError(error);
+            })
+        );
     }
 
     erroresHttpPeticion(status: number): any {

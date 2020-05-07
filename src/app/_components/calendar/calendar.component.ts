@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "@/_services";
 import {Component, Injectable} from '@angular/core';
 import {NgbTimeStruct, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
+import {SportsField} from "@/_models/sportsfield";
+import {GameAssistantService} from "@/_services/game-assistant.service";
 
 /**
  * Example of a String Time adapter
@@ -45,10 +47,12 @@ export class CalendarComponent {
     loading = false;
     model: NgbDateStruct;
     date: { year: number, month: number };
+    sporting: SportsField;
 
     constructor(private calendar: NgbCalendar,
                 private route: ActivatedRoute,
-                private router: Router
+                private router: Router,
+                public gameAssistantService: GameAssistantService
     ) {
     }
 

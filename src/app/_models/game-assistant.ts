@@ -1,4 +1,4 @@
-﻿export class User {
+﻿export class GameAssistant {
     id: number;
     _id: string;
     usuario: string;

@@ -1,15 +1,26 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AthleticDiscipline} from "@/_models/athletic-discipline";
+import {Observable} from "rxjs";
+import {User} from "../_models";
 
 @Injectable({
     providedIn: "root"
 })
 export class GameAssistantService {
 
-    athleticDiscipline: AthleticDiscipline;
+    public currentAthleticDiscipline: AthleticDiscipline;
+    public currentUser: User;
 
-    constructor() { }
+    constructor() {
+    }
+
+    public
+
     sendMsg(msg) {
+    }
+
+    setAthleticDiscipline(athleticDiscipline: AthleticDiscipline): void {
+        this.currentAthleticDiscipline = athleticDiscipline;
     }
 
 }

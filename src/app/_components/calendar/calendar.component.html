@@ -1,8 +1,12 @@
-<h2>¿Cuando quieres jugar Futbol?</h2>
+<h2>¿Cuando quieres jugar {{gameAssistantService.currentAthleticDiscipline.nombre}}?</h2>
+<hr/>
 <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Hoy</button>
 <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">Mes Actual</button>
+<hr/>
+<div style="text-align: center;">
 <ngb-datepicker #dp [(ngModel)]="model" (select)="select()" (navigate)="date = $event.next"></ngb-datepicker>
 <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+</div>
 <hr/>
 <span style="font-size: 10px"> Fecha: {{ model | json }} </span>
 <span style="font-size: 10px"> Hora: {{ time }}</span>
